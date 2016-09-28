@@ -1,5 +1,5 @@
 {
-  "name": "angular2-tutorial",
+  "name": "angular2-practices",
   "version": "1.0.0",
   "scripts": {
     "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
