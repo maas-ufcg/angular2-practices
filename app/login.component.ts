@@ -4,7 +4,7 @@ import {User} from './user';
 
 @Component({
   selector: 'login-form',
-  templateUrl: 'app/login.component.html'
+  templateUrl: 'app/templates/login.component.html'
 })
 
 export class LoginComponent {

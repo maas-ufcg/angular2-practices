@@ -15,6 +15,7 @@ const app_routing_1 = require('./app.routing');
 const app_component_1 = require('./app.component');
 const private_component_1 = require('./private.component');
 const login_component_1 = require('./login.component');
+const widgets_component_1 = require('./widgets.component');
 const authentication_service_1 = require('./authentication.service');
 let AppModule = class AppModule {
 };
@@ -28,7 +29,8 @@ AppModule = __decorate([
         declarations: [
             app_component_1.AppComponent,
             private_component_1.PrivateComponent,
-            login_component_1.LoginComponent
+            login_component_1.LoginComponent,
+            widgets_component_1.WidgetsComponent
         ],
         providers: [
             authentication_service_1.AuthenticationService

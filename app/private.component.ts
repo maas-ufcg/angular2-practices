@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {AuthenticationService} from './authentication.service';
 
 @Component({
-  selector: 'login-form',
-  templateUrl: 'app/private.component.html'
+  selector: 'private-component',
+  templateUrl: 'app/templates/private.component.html'
 })
 
 export class PrivateComponent {

@@ -9,26 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const authentication_service_1 = require('./authentication.service');
-const user_1 = require('./user');
-let LoginComponent = class LoginComponent {
-    constructor(_service) {
-        this._service = _service;
-        this.user = new user_1.User('', '');
-        this.errorMsg = '';
-    }
-    login() {
-        if (!this._service.login(this.user)) {
-            this.errorMsg = 'Failed to Login';
-        }
-    }
+let WidgetsComponent = class WidgetsComponent {
 };
-LoginComponent = __decorate([
+WidgetsComponent = __decorate([
     core_1.Component({
-        selector: 'login-form',
-        templateUrl: 'app/templates/login.component.html'
+        selector: 'my-widgets',
+        templateUrl: 'app/templates/widgets.component.html'
     }), 
-    __metadata('design:paramtypes', [authentication_service_1.AuthenticationService])
-], LoginComponent);
-exports.LoginComponent = LoginComponent;
-//# sourceMappingURL=login.component.js.map
+    __metadata('design:paramtypes', [])
+], WidgetsComponent);
+exports.WidgetsComponent = WidgetsComponent;
+//# sourceMappingURL=widgets.component.js.map

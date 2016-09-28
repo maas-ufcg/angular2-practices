@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 
 import {PrivateComponent} from './private.component';
 import {LoginComponent} from './login.component';
+import {WidgetsComponent} from './widgets.component';
 
 
 const appRoutes: Routes = [
@@ -17,6 +18,12 @@ const appRoutes: Routes = [
     name: 'Login',
     component: LoginComponent
   },
+
+  {
+    path: 'widgets',
+    name: 'Widgets',
+    component: WidgetsComponent
+  }
 
   {
     path: '',

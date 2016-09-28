@@ -23,8 +23,8 @@ let PrivateComponent = class PrivateComponent {
 };
 PrivateComponent = __decorate([
     core_1.Component({
-        selector: 'login-form',
-        templateUrl: 'app/private.component.html'
+        selector: 'private-component',
+        templateUrl: 'app/templates/private.component.html'
     }), 
     __metadata('design:paramtypes', [authentication_service_1.AuthenticationService])
 ], PrivateComponent);

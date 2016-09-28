@@ -2,6 +2,7 @@
 const router_1 = require('@angular/router');
 const private_component_1 = require('./private.component');
 const login_component_1 = require('./login.component');
+const widgets_component_1 = require('./widgets.component');
 const appRoutes = [
     {
         path: 'home',
@@ -12,6 +13,11 @@ const appRoutes = [
         path: 'login',
         name: 'Login',
         component: login_component_1.LoginComponent
+    },
+    {
+        path: 'widgets',
+        name: 'Widgets',
+        component: widgets_component_1.WidgetsComponent
     },
     {
         path: '',

@@ -6,6 +6,7 @@ import {routing} from './app.routing';
 import {AppComponent} from './app.component';
 import {PrivateComponent} from './private.component';
 import {LoginComponent} from './login.component';
+import {WidgetsComponent} from './widgets.component';
 
 import {AuthenticationService} from './authentication.service';
 
@@ -18,7 +19,8 @@ import {AuthenticationService} from './authentication.service';
   declarations: [
     AppComponent,
     PrivateComponent,
-    LoginComponent
+    LoginComponent,
+    WidgetsComponent
   ],
   providers: [
     AuthenticationService
