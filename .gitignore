@@ -1,0 +1,4 @@
+#excluding dependencies directory.
+node_modules/
+node_modules/**
+
