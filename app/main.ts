@@ -4,4 +4,4 @@ import { AppModule } from './app.module';
 
 const platform = platformBrowserDynamic();
 
-platform.boostrapModule(AppModule);
+platform.bootstrapModule(AppModule);

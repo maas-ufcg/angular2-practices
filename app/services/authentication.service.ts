@@ -24,7 +24,7 @@ export class AuthenticationService {
         if(token){
           this.token = token;
 
-          localStorage.setItem('currentUser', JSON.stringfy({ username: username, token: token  } ));
+          localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token  } ));
 
           return true;
         
@@ -38,12 +38,12 @@ export class AuthenticationService {
 
   logout(): void{
     this.token = null;
-    localStorage.remove('currentUser');
+    localStorage.removeItem('currentUser');
   }
 
 
   checkCredentials(){
-    if(localStorage.getItem('currentUser' === null || this.token === null)){
+    if(localStorage.getItem('currentUser') === null || this.token === null){
       this.router.navigate(['/login']);
     }
   }

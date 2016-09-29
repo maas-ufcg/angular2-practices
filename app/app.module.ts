@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { routing } from './config/app.routing';
-
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PrivateComponent } from './controllers/private.component';
 import { LoginComponent } from './controllers/login.component';
@@ -13,6 +13,7 @@ import { AuthenticationService } from './services/authentication.service';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     routing
   ],
   declarations: [

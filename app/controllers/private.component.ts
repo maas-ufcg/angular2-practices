@@ -3,10 +3,10 @@ import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'private-component',
-  templateUrl: 'app/template/private.component'
+  templateUrl: 'app/templates/private.component.html'
 })
 
-export class PrivateComponent{
+export class PrivateComponent implements OnInit{
   constructor(private authService: AuthenticationService){}
 
   ngOnInit(){
