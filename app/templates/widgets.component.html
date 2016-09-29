@@ -2,7 +2,14 @@
   <div class="title">
     All Widgets
   </div>
-  <div class="panel-body">
-    <!-- Put the widgets to appear here. -->
+  <br>
+  <div class="panel-body" *ngFor="let widget of widgets"> 
+    <div class="widget" style="overflow: auto;width:200px;height:100px;border:1px solid #000;">
+      <span class="title">{{widget.type | uppercase}}</span>
+      <div class="widget-data" *ngFor="let data of generateArray(widget.properties)">
+        <p>{{data[0]}}: {{data[1]}}</p>
+      </div>
+    </div>
+    <br>
   </div>
 </div>

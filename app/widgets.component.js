@@ -9,14 +9,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
+const widget_service_1 = require('./widget.service');
+const object_to_iterable_pipe_1 = require('./object-to-iterable.pipe');
+const authentication_service_1 = require('./authentication.service');
 let WidgetsComponent = class WidgetsComponent {
+    constructor(widgetService, _authService) {
+        this.widgetService = widgetService;
+        this._authService = _authService;
+    }
+    getWidgets() {
+        this.widgetService.getWidgets().then(widgets => this.widgets = widgets);
+    }
+    generateArray(obj) {
+        return Object.keys(obj).map((key) => {
+            return [key, obj[key]];
+        });
+    }
+    ngOnInit() {
+        this._authService.checkCredentials();
+        this.getWidgets();
+    }
 };
 WidgetsComponent = __decorate([
     core_1.Component({
         selector: 'my-widgets',
-        templateUrl: 'app/templates/widgets.component.html'
+        templateUrl: 'app/templates/widgets.component.html',
+        providers: [widget_service_1.WidgetService],
+        pipes: [object_to_iterable_pipe_1.ValuesPipe]
     }), 
-    __metadata('design:paramtypes', [])
+    __metadata('design:paramtypes', [widget_service_1.WidgetService, authentication_service_1.AuthenticationService])
 ], WidgetsComponent);
 exports.WidgetsComponent = WidgetsComponent;
 //# sourceMappingURL=widgets.component.js.map

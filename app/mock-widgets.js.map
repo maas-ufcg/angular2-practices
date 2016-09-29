@@ -1,0 +1,1 @@
+{"version":3,"file":"mock-widgets.js","sourceRoot":"","sources":["mock-widgets.ts"],"names":[],"mappings":";AAEa,eAAO,GAAa;IAE/B;QACE,IAAI,EAAE,MAAM;QACZ,UAAU,EAAE;YACV,WAAW,EAAE,QAAQ;SACtB;KACF;IAED;QACE,IAAI,EAAE,QAAQ;QACd,UAAU,EAAE;YACV,SAAS,EAAE,MAAM;YACjB,MAAM,EAAE,QAAQ;SACjB;KACF;CAEF,CAAC"}
