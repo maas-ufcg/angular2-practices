@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { routing } from './config/app.routing';
 
 import { AppComponent } from './app.component';
