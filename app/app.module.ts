@@ -23,7 +23,7 @@ import { AuthenticationService } from './services/authentication.service';
   providers: [
     AuthenticationService
   ],
-  bootstrap? [AppComponent]
+  bootstrap: [AppComponent]
 })
 
 
