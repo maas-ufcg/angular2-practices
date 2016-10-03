@@ -5,7 +5,6 @@ import { User } from '../models/user';
 
 @Component({
   selector: 'login-form',
-//  moduleId: module.id,
   templateUrl: 'app/templates/login.component.html'
 })
 
