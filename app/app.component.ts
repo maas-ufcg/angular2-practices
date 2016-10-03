@@ -5,10 +5,6 @@ import { PrivateComponent } from './controllers/private.component';
 @Component({
   selector: 'my-app',
   template: `<router-outlet></router-outlet>`,
-  precompile: [
-    LoginComponent,
-    PrivateComponent
-  ]
 })
 
 

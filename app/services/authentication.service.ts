@@ -16,9 +16,8 @@ export class AuthenticationService {
   }
 
   login(username, password): Observable<boolean>{
-    let queryString = "grant_type=password&username={{username}}&password={{password}}";
-
-    return this.http.post('https://concepta-node-js.herokuapp.com/v1/auth', queryString)
+    let body = "grant_type=password&username=" + username + "&password=" + password;
+    return this.http.post('https://concepta-node-js.herokuapp.com/v1/auth', body)
       .map((response: Response) => {
         let token = response.json() && response.json().data.access_token;
         if(token){
