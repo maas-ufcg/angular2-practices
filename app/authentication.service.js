@@ -10,33 +10,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const router_1 = require('@angular/router');
-const mock_users_1 = require('./mock-users');
+const http_1 = require('@angular/http');
 let AuthenticationService = class AuthenticationService {
-    constructor(_router) {
+    constructor(_router, http) {
         this._router = _router;
+        this.http = http;
+        this.tokenUrl = 'http://localhost:3000/token/index';
+        //This is a default registered user.
+        this.defaultUsername = 'test1@test2.com';
+        this.defaultPassword = 'Aa234567!';
+    }
+    defaultUrl() {
+        this.tokenUrl = 'http://localhost:3000/token/index';
     }
     logout() {
         localStorage.removeItem("user");
-        this._router.navigate(['Login']);
+        this._router.navigate(['/login']);
     }
     login(user) {
-        var authenticatedUser = mock_users_1.USERS.find(u => u.email === user.email);
-        if (authenticatedUser && authenticatedUser.password === user.password) {
-            localStorage.setItem("user", authenticatedUser);
-            this._router.navigate(['/home']);
-            return true;
-        }
-        return false;
+        this.tokenUrl += `?username=${user.email}&password=${user.password}`;
+        this.http.get(this.tokenUrl)
+            .subscribe(res => {
+            this.defaultUrl();
+            if (res.status == 200) {
+                this.tokenData = res.json().data.token;
+                if (this.tokenData) {
+                    localStorage.setItem("user", user);
+                    this._router.navigate(['/home']);
+                    return true;
+                }
+            }
+        }, err => {
+            this.errorMessage = err;
+            return false;
+        });
     }
     checkCredentials() {
         if (localStorage.getItem("user") === null) {
             this._router.navigate(['/login']);
         }
     }
+    handleError(error) {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
+    }
 };
 AuthenticationService = __decorate([
     core_1.Injectable(), 
-    __metadata('design:paramtypes', [router_1.Router])
+    __metadata('design:paramtypes', [router_1.Router, http_1.Http])
 ], AuthenticationService);
 exports.AuthenticationService = AuthenticationService;
 //# sourceMappingURL=authentication.service.js.map

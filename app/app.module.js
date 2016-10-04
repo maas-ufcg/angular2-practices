@@ -12,6 +12,7 @@ const core_1 = require('@angular/core');
 const platform_browser_1 = require('@angular/platform-browser');
 const forms_1 = require('@angular/forms');
 const app_routing_1 = require('./app.routing');
+const http_1 = require('@angular/http');
 const app_component_1 = require('./app.component');
 const private_component_1 = require('./private.component');
 const login_component_1 = require('./login.component');
@@ -24,6 +25,8 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
+            http_1.HttpModule,
+            http_1.JsonpModule,
             app_routing_1.routing
         ],
         declarations: [
