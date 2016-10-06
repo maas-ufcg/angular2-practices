@@ -9,15 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const mock_widgets_1 = require('./mock-widgets');
+const http_1 = require('@angular/http');
 let WidgetService = class WidgetService {
-    getWidgets() {
-        return Promise.resolve(mock_widgets_1.WIDGETS);
+    constructor(http) {
+        this.http = http;
+    }
+    getResources() {
+        let url = 'http://localhost:3000/resources';
+        return this.http.get(url);
+        // return Promise.resolve(WIDGETS);
+    }
+    handleError(error) {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
     }
 };
 WidgetService = __decorate([
     core_1.Injectable(), 
-    __metadata('design:paramtypes', [])
+    __metadata('design:paramtypes', [http_1.Http])
 ], WidgetService);
 exports.WidgetService = WidgetService;
 //# sourceMappingURL=widget.service.js.map

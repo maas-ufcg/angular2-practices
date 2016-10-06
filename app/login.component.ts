@@ -4,7 +4,8 @@ import {User} from './user';
 
 @Component({
   selector: 'login-form',
-  templateUrl: 'app/templates/login.component.html'
+  templateUrl: 'app/templates/login.component.html',
+  styleUrls: ['app/templates/styles/login.component.css']
 })
 
 export class LoginComponent {
@@ -15,7 +16,7 @@ export class LoginComponent {
 
   login(){
     if(!this._service.login(this.user)){
-      this.errorMsg = 'Failed to Login';
+      this.errorMsg = 'Incorrect Username or Password';
     }
   }
 }

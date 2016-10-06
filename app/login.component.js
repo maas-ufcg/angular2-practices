@@ -19,14 +19,15 @@ let LoginComponent = class LoginComponent {
     }
     login() {
         if (!this._service.login(this.user)) {
-            this.errorMsg = 'Failed to Login';
+            this.errorMsg = 'Incorrect Username or Password';
         }
     }
 };
 LoginComponent = __decorate([
     core_1.Component({
         selector: 'login-form',
-        templateUrl: 'app/templates/login.component.html'
+        templateUrl: 'app/templates/login.component.html',
+        styleUrls: ['app/templates/styles/login.component.css']
     }), 
     __metadata('design:paramtypes', [authentication_service_1.AuthenticationService])
 ], LoginComponent);

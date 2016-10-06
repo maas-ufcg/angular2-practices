@@ -9,21 +9,18 @@ import {WidgetsComponent} from './widgets.component';
 const appRoutes: Routes = [
   {
     path: 'home',
-    name: 'Home',
     component: PrivateComponent
   },
 
   {
     path: 'login',
-    name: 'Login',
     component: LoginComponent
   },
 
   {
     path: 'widgets',
-    name: 'Widgets',
     component: WidgetsComponent
-  }
+  },
 
   {
     path: '',

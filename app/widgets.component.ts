@@ -2,18 +2,17 @@ import {Component, OnInit} from '@angular/core';
 
 import {Widget} from './widget';
 import {WidgetService} from './widget.service';
-import {ValuesPipe} from './object-to-iterable.pipe';
 import {AuthenticationService} from './authentication.service';
 
 @Component({
   selector: 'my-widgets',
   templateUrl: 'app/templates/widgets.component.html',
   providers: [WidgetService],
-  pipes: [ValuesPipe]
 })
 
 export class WidgetsComponent implements OnInit {
-  widgets: Widget[];
+  private widgets: Widget[];
+  private resources: Object[];
 
   constructor(
     private widgetService: WidgetService,
@@ -21,7 +20,34 @@ export class WidgetsComponent implements OnInit {
   ){}
 
   getWidgets(): void {
-    this.widgetService.getWidgets().then(widgets => this.widgets = widgets);
+    // this.widgetService.getWidgets().then(widgets => this.widgets = widgets);
+    for (var resource in this.resources){
+      let properties = JSON.parse(resource.properties);
+      let type = properties.type;
+      delete properties.type;
+
+      let widget = new Widget(resource.id, type, properties);
+      this.widgets.push(widget);
+    }
+  }
+
+  getResources(): void {
+    this.widgetService.getResources()
+    .subscribe(
+      res => {
+        if (res.status == 200){
+          this.resources = res.json();
+          console.log(this.resources[0].properties);
+          this.getWidgets();
+        }
+        else{
+          console.error("Bad Request");
+        }
+      },
+      err => {
+        this.handleError(err);
+      }
+    );
   }
 
   generateArray(obj){
@@ -34,6 +60,6 @@ export class WidgetsComponent implements OnInit {
 
   ngOnInit(): void {
     this._authService.checkCredentials();
-    this.getWidgets();
+    this.getResources();
   }
 }

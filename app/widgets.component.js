@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
+const widget_1 = require('./widget');
 const widget_service_1 = require('./widget.service');
-const object_to_iterable_pipe_1 = require('./object-to-iterable.pipe');
 const authentication_service_1 = require('./authentication.service');
 let WidgetsComponent = class WidgetsComponent {
     constructor(widgetService, _authService) {
@@ -18,7 +18,29 @@ let WidgetsComponent = class WidgetsComponent {
         this._authService = _authService;
     }
     getWidgets() {
-        this.widgetService.getWidgets().then(widgets => this.widgets = widgets);
+        // this.widgetService.getWidgets().then(widgets => this.widgets = widgets);
+        for (var resource in this.resources) {
+            let properties = JSON.parse(resource.properties);
+            let type = properties.type;
+            delete properties.type;
+            let widget = new widget_1.Widget(resource.id, type, properties);
+            this.widgets.push(widget);
+        }
+    }
+    getResources() {
+        this.widgetService.getResources()
+            .subscribe(res => {
+            if (res.status == 200) {
+                this.resources = res.json();
+                console.log(this.resources[0].properties);
+                this.getWidgets();
+            }
+            else {
+                console.error("Bad Request");
+            }
+        }, err => {
+            this.handleError(err);
+        });
     }
     generateArray(obj) {
         return Object.keys(obj).map((key) => {
@@ -27,7 +49,7 @@ let WidgetsComponent = class WidgetsComponent {
     }
     ngOnInit() {
         this._authService.checkCredentials();
-        this.getWidgets();
+        this.getResources();
     }
 };
 WidgetsComponent = __decorate([
@@ -35,7 +57,6 @@ WidgetsComponent = __decorate([
         selector: 'my-widgets',
         templateUrl: 'app/templates/widgets.component.html',
         providers: [widget_service_1.WidgetService],
-        pipes: [object_to_iterable_pipe_1.ValuesPipe]
     }), 
     __metadata('design:paramtypes', [widget_service_1.WidgetService, authentication_service_1.AuthenticationService])
 ], WidgetsComponent);

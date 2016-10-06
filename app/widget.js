@@ -1,6 +1,7 @@
 "use strict";
 class Widget {
-    constructor(type, properties) {
+    constructor(id, type, properties) {
+        this.id = id;
         this.type = type;
         this.properties = properties;
     }

@@ -6,17 +6,14 @@ const widgets_component_1 = require('./widgets.component');
 const appRoutes = [
     {
         path: 'home',
-        name: 'Home',
         component: private_component_1.PrivateComponent
     },
     {
         path: 'login',
-        name: 'Login',
         component: login_component_1.LoginComponent
     },
     {
         path: 'widgets',
-        name: 'Widgets',
         component: widgets_component_1.WidgetsComponent
     },
     {

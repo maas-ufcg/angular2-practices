@@ -16,22 +16,15 @@ let AuthenticationService = class AuthenticationService {
         this._router = _router;
         this.http = http;
         this.tokenUrl = 'http://localhost:3000/token/index';
-        //This is a default registered user.
-        this.defaultUsername = 'test1@test2.com';
-        this.defaultPassword = 'Aa234567!';
-    }
-    defaultUrl() {
-        this.tokenUrl = 'http://localhost:3000/token/index';
     }
     logout() {
         localStorage.removeItem("user");
         this._router.navigate(['/login']);
     }
     login(user) {
-        this.tokenUrl += `?username=${user.email}&password=${user.password}`;
-        this.http.get(this.tokenUrl)
+        let url = this.tokenUrl + `?username=${user.email}&password=${user.password}`;
+        this.http.get(url)
             .subscribe(res => {
-            this.defaultUrl();
             if (res.status == 200) {
                 this.tokenData = res.json().data.token;
                 if (this.tokenData) {
@@ -40,8 +33,11 @@ let AuthenticationService = class AuthenticationService {
                     return true;
                 }
             }
+            else {
+                console.error("Bad Request");
+            }
         }, err => {
-            this.errorMessage = err;
+            this.handleError(err);
             return false;
         });
     }

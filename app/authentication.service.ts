@@ -11,9 +11,6 @@ export class AuthenticationService {
 
   private tokenUrl = 'http://localhost:3000/token/index';
 
-  //This is a default registered user.
-  private defaultUsername = 'test1@test2.com';
-  private defaultPassword = 'Aa234567!';
   private tokenData;
 
   constructor(
@@ -21,22 +18,17 @@ export class AuthenticationService {
     private http: Http,
   ){}
 
-  private defaultUrl(){
-    this.tokenUrl = 'http://localhost:3000/token/index';
-  }
-
     logout(): void{
       localStorage.removeItem("user");
       this._router.navigate(['/login']);
     }
 
-    login(user): boolean{
-      this.tokenUrl+=`?username=${user.email}&password=${user.password}`;
+    login(user){
+      let url = this.tokenUrl + `?username=${user.email}&password=${user.password}`;
 
-      this.http.get(this.tokenUrl)
+      this.http.get(url)
       .subscribe(
         res => {
-          this.defaultUrl();
           if (res.status == 200){
             this.tokenData = res.json().data.token;
 
@@ -45,13 +37,15 @@ export class AuthenticationService {
               this._router.navigate(['/home']);
               return true;
             }
+          }else {
+            console.error("Bad Request");
           }
         },
         err => {
-          this.errorMessage = err;
+          this.handleError(err);
           return false;
         }
-      )
+      );
     }
 
     checkCredentials(): void{
