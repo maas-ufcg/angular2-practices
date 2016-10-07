@@ -19,7 +19,8 @@ let WidgetsComponent = class WidgetsComponent {
     }
     getWidgets() {
         // this.widgetService.getWidgets().then(widgets => this.widgets = widgets);
-        for (var resource in this.resources) {
+        this.widgets = [];
+        for (let resource of this.resources) {
             let properties = JSON.parse(resource.properties);
             let type = properties.type;
             delete properties.type;
@@ -32,7 +33,7 @@ let WidgetsComponent = class WidgetsComponent {
             .subscribe(res => {
             if (res.status == 200) {
                 this.resources = res.json();
-                console.log(this.resources[0].properties);
+                console.log(this.resources[0]);
                 this.getWidgets();
             }
             else {
