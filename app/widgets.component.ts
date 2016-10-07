@@ -26,6 +26,7 @@ export class WidgetsComponent implements OnInit {
       let properties = JSON.parse(resource.properties);
       let type = properties.type;
       delete properties.type;
+      properties = this.generateArray(properties);
 
       let widget = new Widget(resource.id, type, properties);
       this.widgets.push(widget);
@@ -38,7 +39,6 @@ export class WidgetsComponent implements OnInit {
       res => {
         if (res.status == 200){
           this.resources = res.json();
-          console.log(this.resources[0]);
           this.getWidgets();
         }
         else{
@@ -51,7 +51,7 @@ export class WidgetsComponent implements OnInit {
     );
   }
 
-  generateArray(obj){
+  private generateArray(obj){
     return Object.keys(obj).map(
       (key)=>{
         return [key, obj[key]]

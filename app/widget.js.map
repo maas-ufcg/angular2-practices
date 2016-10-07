@@ -1,1 +1,1 @@
-{"version":3,"file":"widget.js","sourceRoot":"","sources":["widget.ts"],"names":[],"mappings":";AAAA;IACE,YACS,EAAU,EACV,IAAY,EACZ,UAAkB;QAFlB,OAAE,GAAF,EAAE,CAAQ;QACV,SAAI,GAAJ,IAAI,CAAQ;QACZ,eAAU,GAAV,UAAU,CAAQ;IACxB,CAAC;AACN,CAAC;AANY,cAAM,SAMlB,CAAA"}
+{"version":3,"file":"widget.js","sourceRoot":"","sources":["widget.ts"],"names":[],"mappings":";AAAA;IACE,YACS,EAAU,EACV,IAAY,EACZ,UAAiB;QAFjB,OAAE,GAAF,EAAE,CAAQ;QACV,SAAI,GAAJ,IAAI,CAAQ;QACZ,eAAU,GAAV,UAAU,CAAO;IACvB,CAAC;AACN,CAAC;AANY,cAAM,SAMlB,CAAA"}

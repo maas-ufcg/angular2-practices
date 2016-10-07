@@ -24,6 +24,7 @@ let WidgetsComponent = class WidgetsComponent {
             let properties = JSON.parse(resource.properties);
             let type = properties.type;
             delete properties.type;
+            properties = this.generateArray(properties);
             let widget = new widget_1.Widget(resource.id, type, properties);
             this.widgets.push(widget);
         }
@@ -33,7 +34,6 @@ let WidgetsComponent = class WidgetsComponent {
             .subscribe(res => {
             if (res.status == 200) {
                 this.resources = res.json();
-                console.log(this.resources[0]);
                 this.getWidgets();
             }
             else {
