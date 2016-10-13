@@ -12,3 +12,17 @@ h2, h3 {
 body {
   margin: 2em;
 }
+
+
+.login_container {
+  margin:auto;
+  max-width: 300px;
+  text-align: center;
+}
+
+.login_container div {
+  margin:3px;
+  text-align:center;
+}
+
+.pictos {font-family:PictosRegular; font-size:20px;}
