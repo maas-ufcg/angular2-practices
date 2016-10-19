@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <!-- 1. Load libraries -->
      <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
@@ -19,6 +20,19 @@
   </head>
   <!-- 3. Display the application -->
   <body>
+    <nav class="nav has-shadow is-info">
+      <div class="container">
+        <div class="nav-left">
+          <a class="nav-item is-tab" href="/">Home</a>
+          <a class="nav-item is-tab" href="/widgets">Widgets</a>
+        </div>
+
+        <div class="nav-right">
+          <a class="nav-item" href="http://facebook.com"><span class="icon"><i class="fa fa-facebook"></i></span></a>
+          <a class="nav-item" href="http://twitter.com"><span class="icon"><i class="fa fa-twitter"></i></span></a>
+        </div>
+      </div>
+    </nav>
     <my-app>Loading...</my-app>
   </body>
 </html>
