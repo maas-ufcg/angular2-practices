@@ -57,6 +57,7 @@ WidgetsComponent = __decorate([
     core_1.Component({
         selector: 'my-widgets',
         templateUrl: 'app/templates/widgets.component.html',
+        styleUrls: ['app/templates/styles/widgets.component.css'],
         providers: [widget_service_1.WidgetService],
     }), 
     __metadata('design:paramtypes', [widget_service_1.WidgetService, authentication_service_1.AuthenticationService])

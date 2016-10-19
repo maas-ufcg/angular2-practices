@@ -1,0 +1,16 @@
+@import "../../../node_modules/bulma/bulma";
+
+.widget {
+  overflow: auto;
+  width: 200px;
+  height: 100px;
+  border: 2px solid #464cff;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.widget-data {
+  color: #6d6f78;
+}

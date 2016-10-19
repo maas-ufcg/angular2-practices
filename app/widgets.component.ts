@@ -7,6 +7,7 @@ import {AuthenticationService} from './authentication.service';
 @Component({
   selector: 'my-widgets',
   templateUrl: 'app/templates/widgets.component.html',
+  styleUrls: ['app/templates/styles/widgets.component.css'],
   providers: [WidgetService],
 })
 
